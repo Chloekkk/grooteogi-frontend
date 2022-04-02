@@ -11,7 +11,8 @@
     "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,yml,html}\"",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s public",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "chromatic": "npx chromatic --project-token=a328edc115ab"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
