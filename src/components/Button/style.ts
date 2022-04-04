@@ -50,9 +50,7 @@ export const StyledButton = styled.button<SButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  column-gap: 0.5rem;
   ${getColors};
   ${getSize};
-  img & {
-    flex: 1 1 20px;
-  }
 `;
