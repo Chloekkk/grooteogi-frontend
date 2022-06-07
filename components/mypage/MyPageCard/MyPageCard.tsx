@@ -28,7 +28,7 @@ const MyPageCard: React.FC<{ reservation: ReservationListResponseDto; cardType?:
   };
   const moveToCreateReview = (e: React.MouseEvent) => {
     e.preventDefault();
-    router.push('/mypage/reviews/create');
+    router.push(`/mypage/reviews/${reservationData.reservationId}`);
     e.stopPropagation();
   };
   const cancelReservation = async () => {
@@ -105,9 +105,9 @@ const MyPageCard: React.FC<{ reservation: ReservationListResponseDto; cardType?:
               />
             </>
           ) : new Date(reservationData.date + ' ' + reservationData.startTime).getTime() > todayDate.getTime() ? (
-            <Button name={'취소하기'} color={'gray300'} fontColor={'white'} size={'sm'} onClick={cancelReservation} />
-          ) : reservationData.score === 0 ? (
             <Button name={'리뷰쓰기'} color={'primary'} fontColor={'white'} size={'sm'} onClick={moveToCreateReview} />
+          ) : reservationData.score === 0 ? (
+            <Button name={'취소하기'} color={'gray300'} fontColor={'white'} size={'sm'} onClick={cancelReservation} />
           ) : (
             <>
               <Button

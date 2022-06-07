@@ -20,6 +20,10 @@ const reservation = {
     const url = '/reservation/send-sms';
     return await client.post(url, reservation);
   },
+  getReservation: async (reservationId: string) => {
+    const url = `/reservation/${reservationId}`;
+    return await client.get(url);
+  },
   getReservationList: async (isHost: boolean, filter: keyof typeof FilterType) => {
     const url = filter === 'ALL' ? `/reservation?isHost=${isHost}` : `/reservation?isHost=${isHost}&filter=${filter}`;
     return await client.get(url);
@@ -27,6 +31,15 @@ const reservation = {
   deleteReservation: async (reservationId: number | string) => {
     const url = `/reservation/${reservationId}`;
     return client.delete(url, {});
+  },
+  createReview: async (data: {
+    postId: string | number;
+    reservationId: string | number;
+    text: string;
+    score: number;
+  }) => {
+    const url = '/review';
+    return client.post(url, data);
   },
 };
 
